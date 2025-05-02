@@ -200,12 +200,12 @@ def fileParse(fileName: str, udgConverter: CFGToUDGConverter,
 def initialCalleeInfos(calleeInfs: Dict) -> CalleeInfos:
     calleeInfos: CalleeInfos = CalleeInfos()
 
-    defInfos = calleeInfs["ArgDefs"]
+    defInfos = calleeInfs["ArgDef"]
     for funcName, argNs in defInfos.items():
         for argN in argNs:
             calleeInfos.addArgDef(funcName, argN)
 
-    useInfos = calleeInfs["ArgUses"]
+    useInfos = calleeInfs["ArgUse"]
     for funcName, argNs in useInfos.items():
         for argN in argNs:
             calleeInfos.addArgUse(funcName, argN)
