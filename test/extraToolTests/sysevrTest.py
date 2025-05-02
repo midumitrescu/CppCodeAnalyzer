@@ -86,7 +86,7 @@ def testGenerateSlices():
     converter: CFGToUDGConverter = CFGToUDGConverter()
     defUseConverter: CFGAndUDGToDefUseCFG = CFGAndUDGToDefUseCFG()
     ddgCreator: DDGCreator = DDGCreator()
-    cpgsCommon: List[CPG] = fileParse(file1, calleeInfos, converter, defUseConverter, ddgCreator) # print et al
+    cpgsCommon: List[CPG] = fileParse(file1, converter, defUseConverter, ddgCreator) # print et al
     for cpg in cpgsCommon:
         cpg.joinSlice = False
         cpg.file = file1
@@ -96,7 +96,7 @@ def testGenerateSlices():
     #     cpg.file = file2
     cpgMainss: List[CPG] = list()
     for testfile in testfiles:
-        cpgMains: List[CPG] = fileParse(testfile, calleeInfos, converter, defUseConverter, ddgCreator)
+        cpgMains: List[CPG] = fileParse(testfile, converter, defUseConverter, ddgCreator)
         for cpg in cpgMains:
             cpg.file = testfile
         cpgMainss.extend(cpgMains)
